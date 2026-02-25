@@ -25,28 +25,6 @@ module.exports = {
       url: {
         type: Sequelize.STRING
       },
-      shippingCosts: {
-        allowNull: false,
-        type: Sequelize.DOUBLE
-      },
-      averageServiceMinutes: {
-        type: Sequelize.DOUBLE
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      phone: {
-        type: Sequelize.STRING
-      },
-      logo: {
-        type: Sequelize.STRING
-      },
-      heroImage: {
-        type: Sequelize.STRING
-      },
-      status: {
-        allowNull: false
-      },
       restaurantCategoryId: {
         type: Sequelize.INTEGER,
         references: {
@@ -55,6 +33,45 @@ module.exports = {
           },
           key: 'id'
         }
+      },
+      shippingCosts: {
+        allowNull: false,
+        type: Sequelize.DOUBLE
+      },
+      email: {
+        type: Sequelize.STRING
+      },
+      averageServiceMinutes: {
+        type: Sequelize.DOUBLE
+      },
+      logo: {
+        type: Sequelize.STRING
+      },
+      heroImage: {
+        type: Sequelize.STRING
+      },
+      phone: {
+        type: Sequelize.STRING
+      },
+      createdAt: {
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        type: Sequelize.DATE
+      },
+      userId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'Users'
+          },
+          key: 'id'
+        }
+      },
+      status: {
+        allowNull: false,
+        type: Sequelize.ENUM('online', 'offline', 'closed', 'temporarily closed')
       }
 
       // TODO: Include the rest of the fields of the Restaurants table
